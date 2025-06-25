@@ -1,9 +1,9 @@
 import React from "react";
 import { Banknote, Trash2, UserPlus } from "lucide-react";
 import ActionButton from "../components/button/ActionButton";
-import { vietnameseBanks } from '../constants/vietnameseBanks'
-import type { Participant } from '../types';
-import { useTranslation } from 'react-i18next';
+import { vietnameseBanks } from "../constants/vietnameseBanks";
+import type { Participant } from "../types";
+import { useTranslation } from "react-i18next";
 
 type ParticipantScreenProps = {
   participants: Participant[];
@@ -27,9 +27,9 @@ export const ParticipantScreen: React.FC<ParticipantScreenProps> = ({
 
   return (
     <div className="p-4 space-y-4">
-      <h2 className="text-xl font-bold text-gray-800">{t('participants')}</h2>
-      <ActionButton onClick={() => openModal("addParticipant")}> 
-        <UserPlus className="mr-2" size={20} /> {t('addParticipant')}
+      <h2 className="text-xl font-bold text-gray-800">{t("participants")}</h2>
+      <ActionButton onClick={() => openModal("addParticipant")}>
+        <UserPlus className="mr-2" size={20} /> {t("addParticipant")}
       </ActionButton>
       <div className="space-y-3">
         {participants.map((p) => (
@@ -39,22 +39,25 @@ export const ParticipantScreen: React.FC<ParticipantScreenProps> = ({
           >
             <div>
               <p className="font-bold text-gray-800 text-base">{p.name}</p>
-              <div className="text-sm text-gray-600 mt-1 flex items-center">
+              <div className="text-sm text-gray-600 mt-1 flex">
                 <Banknote
-                  size={16}
+                  size={20}
                   className="mr-2 text-green-600 flex-shrink-0"
                 />
-                <span>
-                  {getBankName(p.bank)} - {t('bankNumber')}: {p.accountNumber}
-                </span>
+                <div>
+                  <p>{getBankName(p.bank)}</p>
+                  <p>
+                    {t("bankNumber")}: {p.accountNumber}
+                  </p>
+                </div>
               </div>
             </div>
             <button
               onClick={() => handleRemove(p.id)}
               className="text-red-500 hover:text-red-700 transition-colors ml-2"
-              title={t('delete')}
+              title={t("delete")}
             >
-              <Trash2 size={20} />
+              <Trash2 size={15} />
             </button>
           </div>
         ))}
