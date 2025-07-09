@@ -22,7 +22,6 @@ export const ExpenseScreen: React.FC<ExpenseScreenProps> = ({
   setExpenses,
   participants,
   addToast,
-  openModal,
 }) => {
   const { t, i18n } = useTranslation();
   const [description, setDescription] = useState<string>("");
