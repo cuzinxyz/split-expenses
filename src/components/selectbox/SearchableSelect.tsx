@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { ChevronsUpDown, Check } from "lucide-react";
 import InputWithLabel from '../input/InputWithLabel';
 import useClickOutside from '../../hooks/useClickOutside';
